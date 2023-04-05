@@ -1,24 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Outlet,
+} from 'react-router-dom';
+import Alert from './components/alert/Alert';
+import Footer from './components/footer/Footer';
+
+import Home from "./components/home/Home";
+import Theme from './components/theme/Theme';
+import Layout from './components/layout/Layout';
+import Navigation from './components/navigation/Navigation';
+import useStateProvider from './hooks/useStateProvider';
+import useWindowDimensions from './hooks/useWindowDimmensions';
+import NotFound from './components/notFound/NotFound';
 
 function App() {
+
+  const { width } = useWindowDimensions();
+
+  const { alert } = useStateProvider();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Router>
+      <Routes>
+        <Route
+          element={
+            <>
+              <Theme>
+                <Navigation expand={width >= 750 ? 'md' : false} />
+                <Layout>
+                  <Outlet />
+                </Layout>
+                <Footer />
+              </Theme>
+            </>
+          }
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+          <Route path='/' element={<Home />} />
+          <Route path='*' element={<NotFound/>} />
+        </Route>
+
+      </Routes>
+      {alert && <Alert message={alert.message} type={alert.type} />}
+
+    </Router>
+
   );
 }
 

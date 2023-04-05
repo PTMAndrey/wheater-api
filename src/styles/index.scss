@@ -1,0 +1,72 @@
+@import "./variables.scss";
+@import "./bootstrap.scss";
+
+*:where(:not(iframe, canvas, img, svg, video, input):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: $primary_font_family;
+}
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.6em;
+}
+
+a,
+button {
+  cursor: revert;
+  pointer-events: revert;
+  text-decoration: none;
+}
+
+ol,
+ul,
+menu {
+  list-style: none;
+}
+
+nav, footer{
+  min-width: 226px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+textarea {
+  white-space: revert;
+}
+
+meter {
+  -webkit-appearance: revert;
+  appearance: revert;
+}
+
+::placeholder {
+  color: unset;
+}
+
+:where([hidden]) {
+  display: none;
+}
+
+:where([contenteditable]) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  -webkit-linebreak: after-white-space;
+  overflow-wrap: break-word;
+}
+
+:where([draggable="true"]) {
+  -webkit-user-drag: element;
+}
