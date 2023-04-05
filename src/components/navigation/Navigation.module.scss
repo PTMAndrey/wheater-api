@@ -1,0 +1,44 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+
+.navbar {
+    @media screen and (max-width:750px) {
+        position: fixed !important;
+        width: 100% !important;
+    }
+}
+
+.logoNavbar {
+    max-width: 50px;
+    aspect-ratio: 1;
+}
+.onHover {
+    border: 0.1px solid transparent;
+}
+
+.onHover:hover {
+    color: rgb(182, 180, 180) !important;
+    border-bottom: 0.1px solid $color-yellow;
+}
+
+
+.dropdown-toggle:after {
+    align-self: center;
+}
+
+.hello {
+    font-size: $font-body-normal;
+    font-weight: $font-bold;
+}
+
+.changeTheme{
+    max-width: 25px;
+    aspect-ratio: 1;
+}
+
+.activeTheme{
+    // color:blueviolet;
+    color:#e5f7f5;
+
+}

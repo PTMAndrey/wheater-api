@@ -1,0 +1,44 @@
+@import '../../styles/variables.scss';
+@import "../../styles/mixins.scss";
+
+.layout {
+    // background-image: linear-gradient(to top, #8988DD, rgba(255, 255, 255, 0.386));
+    padding: 32px;
+    padding-top: 0px;
+    min-width: 220px;
+    color: #272343;
+
+    @include medium {
+        padding: 2rem;
+        min-width: 150px;
+        padding-top: 0px;
+    }
+
+    @include small {
+        padding: 10px 20px;
+        min-width: 100px;
+        padding-top: 0px;
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    // background-color: $background-color;
+    max-width: 1320px;
+    min-width: 100px;
+    margin: 16px auto 32px auto;
+    padding: 32px;
+
+    @include medium {
+        padding: 2rem;
+        padding-top: 0px;
+        min-width: 195px;
+    }
+
+    @include small {
+        padding: 0rem;
+        // margin: 16px 15px 32px 15px;
+        min-width: 50px;
+    }
+}

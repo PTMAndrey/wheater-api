@@ -1,0 +1,12 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.bgColor{
+    background-color: $color-dark-blue !important;
+}
+
+.icon{
+    width:30px;
+    height: 100%;
+    color:white;
+}
