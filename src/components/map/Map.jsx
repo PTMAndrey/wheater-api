@@ -1,20 +1,20 @@
 import React from 'react'
-import { useState } from 'react';
+import { Row } from 'react-bootstrap';
 import useStateProvider from '../../hooks/useStateProvider';
-import useWindowDimensions from '../../hooks/useWindowDimmensions';
-import { P } from '../../styles/HomeStyles';
+import { H5, P } from '../../styles/HomeStyles';
 import { Romania } from '../services/romania.js';
+import styles from "./Map.module.scss"
 
-const Map = () => {
+const Map = (props) => {
 
     const { selectedCity, setSelectedCity } = useStateProvider();
-    const {width} = useWindowDimensions();
 
     const handleCityClick = (event) => {
         if (event.target.tagName === 'path') {
             // Retrieve the 'title' attribute using getAttribute
             setSelectedCity(event.target.getAttribute('title'));
-            // setQuery({ q: event.target.getAttribute('title') })
+            props.setMainOptionNavigation('today');
+            props.setQuery({ q: event.target.getAttribute('title') })
         }
     }
 
@@ -50,10 +50,14 @@ const Map = () => {
         cityNameHover.style.display = 'none';
     }
     return (
-        <div >
-            <Romania onClick={handleCityClick} handleCityHover={handleCityHover} handleCityLeave={handleCityLeave} selectedCity={selectedCity} />
-            {selectedCity && <P>Selected city: {selectedCity}</P>}
-
+        <div className={styles.map}>
+            <div className={styles.pickCity}>
+                <H5>Pick any city to view the weather!</H5>
+                <Romania onClick={handleCityClick} handleCityHover={handleCityHover} handleCityLeave={handleCityLeave} selectedCity={selectedCity} />
+            </div>
+            <Row>
+                <P>Your selected city is: {selectedCity}</P>
+            </Row>
         </div>
     )
 }

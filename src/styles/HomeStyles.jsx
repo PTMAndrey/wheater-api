@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-
-
 export const NavBarStyled = styled.div`
   background-color: ${(props) => props.theme.navBar};
   width:100%;
@@ -93,7 +91,7 @@ export const MainNav = styled.div`
   border-radius:20px;
   width:100%;
   
-  & button{
+  button{
     border-bottom:1px solid transparent;
     &:hover{
       border-bottom:1px solid ${(props) => props.theme.button};
@@ -102,6 +100,21 @@ export const MainNav = styled.div`
 //   @media screen and (max-width:750px) {
 //     font-size: 80px !important;
 // }
+`
+
+export const Card = styled.div`
+  background-color: ${(props) => props.theme.cardBG};
+  color:${(props) => props.theme.colorCard};
+  border: 1px solid black;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  width:15rem;
+
+    img{
+    border-bottom:1px solid black;
+  }
 `
 
 export const H1 = styled.h1`
@@ -138,4 +151,10 @@ export const P = styled.p`
 `;
 export const Div = styled.div`
   color: ${(props) => props.theme.text};
+`;
+
+export const Sup = styled.sup`
+  color: ${(props) => props.theme.colorCard};
+  cursor:pointer;
+  margin-left:10px;
 `;
