@@ -9,7 +9,7 @@ import { GlobalContext } from '../../context/GlobalContext';
 
 import styles from './Footer.module.scss'
 const Footer = () => {
-    const { theme, themeSwitchHandler } = useContext(GlobalContext);
+    const { theme } = useContext(GlobalContext);
 
     useEffect(() => {
         window.localStorage.setItem("theme", theme);

@@ -1,9 +1,7 @@
 import React, { useContext } from "react";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { normalize } from "styled-normalize";
-
 import { GlobalContext } from "../../context/GlobalContext";
-import useWindowDimensions from "../../hooks/useWindowDimmensions";
 
 // 1.
 const GlobalStyle = createGlobalStyle`
@@ -17,8 +15,6 @@ const GlobalStyle = createGlobalStyle`
 
 // 2.
 const Theme = ({ children }) => {
-  const {width} = useWindowDimensions();
-
   const darkTheme = {
     background: "#0f0e17",
     footer: "#18183a",
