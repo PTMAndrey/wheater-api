@@ -1,0 +1,41 @@
+.mapContainer {
+  /* display: inline-block; */
+  /* position: relative; */
+  width: 100%;
+  /* padding-bottom: 100%;  */
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+.svg-content {
+  /* display: inline-block; */
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+}
+
+.mapContainer path {
+  fill: #ccc;
+  stroke: #fff;
+  stroke-width: 1px;
+  cursor: pointer;
+}
+
+.mapContainer path:hover {
+  fill: #f9d9cc;
+}
+
+.mapContainer .cityNameHover {
+  position: absolute;
+  /* top: 0;
+    left: 0; */
+  display: none;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 5px;
+  font-size: 12px;
+}
+
+.mapContainer path:hover+.cityNameHover {
+  display: block;
+}

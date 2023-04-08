@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import "./styles/index.scss";
 import { GlobalContextProvider } from './context/GlobalContext';
+import { StateProvider } from './context/StateProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <GlobalContextProvider>
-    <App />
+    <StateProvider>
+      <App />
+    </StateProvider>
   </GlobalContextProvider>,
 );
 

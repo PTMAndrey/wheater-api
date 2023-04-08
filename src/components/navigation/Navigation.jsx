@@ -39,7 +39,6 @@ const Navigation = (props) => {
             <Offcanvas.Body >
               <Nav className={`justify-content-end flex-grow-1 pe-3 d-flex align-items-center`}>
                 <Nav.Link className={` ${theme === "dark" ? 'text-white' : 'text-black'} ${styles.onHover}`} href="/favorites" >Favorites</Nav.Link>
-                <Nav.Link className={` ${theme === "dark" ? 'text-white' : 'text-black'} ${styles.onHover}`} href="/favorites" >Favorites</Nav.Link>
                 <NavDropdown
                   title={<img src={ChangeTheme} style={{filter: `${theme === "dark" ? 'invert(1)': 'invert(0)'}`}} className={styles.changeTheme} alt="WEATHER - ACCESA" />}
                   className={`${styles.onHover} `}
