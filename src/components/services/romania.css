@@ -1,8 +1,19 @@
 .mapContainer {
   /* display: inline-block; */
   /* position: relative; */
+  width: 600px;
+  /* padding-bottom: 100%;  */
+  padding-bottom: 20px;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+.mapContainer2 {
+  /* display: inline-block; */
+  /* position: relative; */
   width: 100%;
   /* padding-bottom: 100%;  */
+  padding-bottom: 20px;
   vertical-align: middle;
   overflow: hidden;
 }
@@ -14,18 +25,18 @@
   left: 0;
 }
 
-.mapContainer path {
+.mapContainer path, .mapContainer2 path {
   fill: #ccc;
   stroke: #fff;
   stroke-width: 1px;
   cursor: pointer;
 }
 
-.mapContainer path:hover {
+.mapContainer path:hover, .mapContainer2 path:hover {
   fill: #f9d9cc;
 }
 
-.mapContainer .cityNameHover {
+.mapContainer .cityNameHover, .mapContainer2 .cityNameHover {
   position: absolute;
   /* top: 0;
     left: 0; */
@@ -36,6 +47,6 @@
   font-size: 12px;
 }
 
-.mapContainer path:hover+.cityNameHover {
+.mapContainer path:hover+.cityNameHover, .mapContainer2 path:hover+.cityNameHover {
   display: block;
 }

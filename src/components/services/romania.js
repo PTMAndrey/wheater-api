@@ -4,13 +4,13 @@ import "./romania.css";
 export const Romania = (props) => {
    const {width, height} = useWindowDimensions();
    return (
-      <div className="mapContainer">
+      <div className={width > 750 ? "mapContainer" : "mapContainer2"}>
          <svg
-            width={width > 550 ?  "60%": "100%" }
-            height={height> 550 ? "60%" :"100%" }
+            width={width > 550 ?  "100%": "100%" }
+            height={height> 550 ? "100%" :"100%" }
             viewBox="0 0 612.36395 432.29416" 
             preserveAspectRatio="xMinYMin meet" 
-            class="svg-content"
+            className="svg-content"
             >
 
             <path
