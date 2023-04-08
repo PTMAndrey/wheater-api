@@ -27,8 +27,8 @@
     // background-color: $background-color;
     max-width: 1320px;
     min-width: 100px;
-    margin: 16px auto 32px auto;
-    padding: 32px;
+    margin: 0 auto 32px auto;
+    padding: 8px 32px 32px 32px;
 
     @include medium {
         padding: 2rem;

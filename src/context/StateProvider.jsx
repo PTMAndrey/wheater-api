@@ -14,10 +14,14 @@ export const StateProvider = ({ children }) => {
   }
 
   
+  const [selectedCity, setSelectedCity] = useState("Bucuresti");
+  
   return <StateContext.Provider
     value={{
       alert,
       setAlert,
+      selectedCity,
+      setSelectedCity,
 
     }}
   >{children}</StateContext.Provider>;

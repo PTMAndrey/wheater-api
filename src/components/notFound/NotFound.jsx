@@ -8,12 +8,12 @@ import styles from './NotFound.module.scss';
 import {P} from "../../styles/HomeStyles";
 const NotFound = () => {
     return (
-        <Container>
+        <Container className='mt-5'>
             <Row>
                 <Col>
                     <img src={imagineNotFound} alt='Pagina nu a fost gasita' className={styles.imagineNotFound} />
                 </Col>
-                <Col className={`${styles.textFont} mt-5`}>
+                <Col className='mt-5'>
                     <Row><P className={styles.ntf}>#404</P></Row>
                     <Row className='mt-5'><P className={styles.ntf2}>Aha! Vezi? Și tu poți greși!</P></Row>
                     <Row><P className={styles.ntf3}>( sau am greșit noi )...</P></Row>

@@ -8,6 +8,11 @@
     @media screen and (max-width:550px) {
       @content;
     }
+  } 
+  @mixin responsive_W750px {
+    @media screen and (max-width:750px) {
+      @content;
+    }
   }
   
   @mixin medium {

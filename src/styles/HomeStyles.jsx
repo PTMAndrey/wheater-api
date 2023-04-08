@@ -10,7 +10,7 @@ export const NavBarStyled = styled.div`
 `
 
 export const FooterBG = styled.div`
-  background-color: ${(props) => props.theme.secondaryBackground};
+  background-color: ${(props) => props.theme.footer};
 `;
 
 export const SwitchButton = styled.label`
@@ -45,7 +45,7 @@ export const SwitchButton = styled.label`
     width: 26px;
     left: 4px;
     bottom: 4px;
-    background-color: ${(props) => props.theme.secondaryBackground};
+    background-color: ${(props) => props.theme.footer};
     -webkit-transition: 0.4s;
     transition: 0.4s;
     border-radius: 50%;
@@ -82,9 +82,32 @@ export const Button = styled.button`
   }
 `;
 
+export const MainNav = styled.div`
+  display:flex;
+  align-items:center; 
+  justify-content:space-around;
+  color: ${(props) => props.theme.colorCard};
+  border-bottom: 4px solid ${(props) => props.theme.cardBG};
+  padding:10px 10px;
+  margin-bottom:30px;
+  border-radius:20px;
+  width:100%;
+  
+  & button{
+    border-bottom:1px solid transparent;
+    &:hover{
+      border-bottom:1px solid ${(props) => props.theme.button};
+    }
+  }
+//   @media screen and (max-width:750px) {
+//     font-size: 80px !important;
+// }
+`
+
 export const H1 = styled.h1`
   color: ${(props) => props.theme.text};
   font-weight:bold;
+
 `;
 export const H2 = styled.h2`
   color: ${(props) => props.theme.text};
@@ -101,6 +124,9 @@ export const H4 = styled.h4`
 export const H5 = styled.h5`
   color: ${(props) => props.theme.text};
   font-weight:bold;
+  @media screen and(width<550px){
+    font-size:16px;
+  }
 `;
 export const H6 = styled.h6`
   color: ${(props) => props.theme.text};

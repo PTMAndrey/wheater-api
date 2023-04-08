@@ -21,38 +21,46 @@ const Theme = ({ children }) => {
 
   const darkTheme = {
     background: "#0f0e17",
-    secondaryBackground: "#18183a",
+    footer: "#18183a",
     navBar: "#374151", //#a87703
     text: "#a7a9be",
     button: "#ff8906",
     buttonHover: "#c26a05",
+    cardBG:"#2f1970",
+    colorCard: "#a7a9be",
   };
 
   const lightTheme = {
     background: "#e5f7f5",
-    secondaryBackground: "#0f0e17",//272343
-    navBar: "#bae8e8", // #ba8500
+    footer: "#0f0e17",
+    navBar: "#bae8e8", 
     text: "#2d334a",
     button: "#ffd803",
     buttonHover: "#bae8e8",
+    cardBG: "#518d85",
+    colorCard: "black",
   };
 
   const fluffyTheme = {
     background: "#faeee7",
-    secondaryBackground: "#0f0e17",
+    footer: "#0f0e17",
     navBar: "#E5E7EB", // #663742 
     text: "#594a4e",
     button: "#ff8ba7",
     buttonHover: "#c56d82",
+    cardBG: "#d9d4e7",
+    colorCard: "black",
   };
 
   const rainTheme = {
-    background: 'linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 42%, rgba(0,212,255,1) 100%)',
-    secondaryBackground: "#0f0e17",
-    navBar: "#4d8db8", // #4d8db8
+    background: 'linear-gradient(180deg, rgba(2,0,0,1) 0%, rgba(9,9,80,1) 70%, rgba(0,9,155,1) 100%)',
+    footer: "#0f0e17",
+    navBar: "#0c516d", // #4d8db8
     text: "#fff",
     button: "#2b4759", // #2b4759 try it 
     buttonHover: "#1a2c38",
+    cardBG: "#0c516d",
+    colorCard: "white",
   };
 
 

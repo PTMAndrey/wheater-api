@@ -7,7 +7,7 @@ import {
 import Alert from './components/alert/Alert';
 import Footer from './components/footer/Footer';
 
-import Home from "./components/home/Home";
+import Home from "./pages/home/Home";
 import Theme from './components/theme/Theme';
 import Layout from './components/layout/Layout';
 import Navigation from './components/navigation/Navigation';
