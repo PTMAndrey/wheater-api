@@ -25,6 +25,7 @@ const Home = () => {
     }, [theme]);
 
     const [query, setQuery] = useState({ q: "București" });
+    
     const [units, setUnits] = useState("metric");
     const [weather, setWeather] = useState(null);
 
@@ -40,7 +41,7 @@ const Home = () => {
     console.log(weather);
     return (
         <Container>
-             <MainNavigation setMainOptionNavigation={setMainOptionNavigation} />
+             <MainNavigation mainOptionNavigation={mainOptionNavigation} setMainOptionNavigation={setMainOptionNavigation} />
 
             <Container>
                 <Col>

@@ -23,7 +23,7 @@ const Navigation = (props) => {
     <Navbar key={props.expand} sticky="top" expand={props.expand}>
       <NavBarStyled>
         <Container fluid className='d-flex align-items-center justify-content-between'>
-          <Navbar.Brand href="/" className={`${theme === "dark" && width>300 ? 'text-white' : 'text-black'}`}><img src={Logo} className={styles.logoNavbar} alt="WEATHER - ACCESA" />{width > 300 && 'Weather Accesa'}</Navbar.Brand>
+          <Navbar.Brand href="/" className={`${(theme === "dark" || theme === 'rain') && width>300 ? 'text-white' : 'text-black'}`}><img src={Logo} className={styles.logoNavbar} alt="WEATHER - ACCESA" />{width > 300 && 'Weather Accesa'}</Navbar.Brand>
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${props.expand}`}/>
           <Navbar.Offcanvas
             id={`offcanvasNavbar-expand-${props.expand}`}
@@ -33,14 +33,14 @@ const Navigation = (props) => {
             <NavBarStyled>
             <Offcanvas.Header closeButton>
               <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${props.expand}`}>
-                <Nav.Link href="/" className={`${theme === "dark" && width>264 ? 'text-white' : 'text-black'}`}><img src={Logo} className={styles.logoNavbar} alt="WEATHER - ACCESA" />{width > 264 && 'Weather Accesa'}</Nav.Link>
+                <Nav.Link href="/" className={`${(theme === "dark" || theme === 'rain') && width>264 ? 'text-white' : 'text-black'}`}><img src={Logo} className={styles.logoNavbar} alt="WEATHER - ACCESA" />{width > 264 && 'Weather Accesa'}</Nav.Link>
               </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body >
               <Nav className={`justify-content-end flex-grow-1 pe-3 d-flex align-items-center`}>
-                <Nav.Link className={` ${theme === "dark" ? 'text-white' : 'text-black'} ${styles.onHover}`} href="/favorites" >Favorites</Nav.Link>
+                <Nav.Link className={` ${(theme === "dark" || theme === 'rain') ? 'text-white' : 'text-black'} ${styles.onHover}`} href="/favorites" >Favorites</Nav.Link>
                 <NavDropdown
-                  title={<img src={ChangeTheme} style={{filter: `${theme === "dark" ? 'invert(1)': 'invert(0)'}`}} className={styles.changeTheme} alt="WEATHER - ACCESA" />}
+                  title={<img src={ChangeTheme} style={{filter: `${(theme === "dark" || theme === 'rain')? 'invert(1)': 'invert(0)'}`}} className={styles.changeTheme} alt="WEATHER - ACCESA" />}
                   className={`${styles.onHover} `}
                   id={`offcanvasNavbarDropdown-expand-${props.expand}`}
                 >

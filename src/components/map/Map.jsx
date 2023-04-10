@@ -7,12 +7,13 @@ import styles from "./Map.module.scss"
 
 const Map = (props) => {
 
-    const { selectedCity, setSelectedCity } = useStateProvider();
+    const { selectedCity, setSelectedCity, setIDSelectedCity } = useStateProvider();
 
     const handleCityClick = (event) => {
         if (event.target.tagName === 'path') {
             // Retrieve the 'title' attribute using getAttribute
             setSelectedCity(event.target.getAttribute('title'));
+            setIDSelectedCity(event.target.getAttribute('id'))
             props.setMainOptionNavigation('today');
             props.setQuery({ q: event.target.getAttribute('title') })
         }
