@@ -14,9 +14,9 @@ import { iconUrlFromCode } from "../services/weatherService";
 import useStateProvider from '../../hooks/useStateProvider';
 import { Col, Row } from 'react-bootstrap';
 
-const CardTodayForecast = ({ weather, units, setUnits }) => {
+const CardTodayForecast = () => {
 
-    const { selectedCity, idSelectedCity, setAlert, favorites, setFavorites } = useStateProvider();
+    const { selectedCity, idSelectedCity, setAlert, favorites, setFavorites,weather, units, setUnits} = useStateProvider();
     const [isFavorite, setIsFavorite] = useState(false);
 
     const handleFavorites = () => {
@@ -69,8 +69,8 @@ const CardTodayForecast = ({ weather, units, setUnits }) => {
                                 Current weather
                             </div>
                             <div className='d-flex flex-direction-row align-items-center'>
-                                <img src={iconUrlFromCode(weather.icon)} alt="" />
-                                <H3>{`${weather.temp.toFixed()}°`}</H3>
+                                <img src={iconUrlFromCode(weather?.icon)} alt="" />
+                                <H3>{`${weather?.temp.toFixed()}°`}</H3>
                             </div>
                         </Div>
                     </Col>
@@ -86,27 +86,20 @@ const CardTodayForecast = ({ weather, units, setUnits }) => {
                         </Row>
 
                         <Row className={styles.forecastDetails}>
-                            <p>Humidity</p>
                             <p>Real feel</p>
+                            <p>Humidity</p>
                             <p>Wind</p>
                             <p>High T°</p>
                             <p>Low T°</p>
                         </Row>
 
                         <Row className={styles.forecastDetails}>
-                            <span>{`${weather.feels_like.toFixed()}°`}</span>
-                            <span>{`${weather.speed.toFixed()} km/h`}</span>
-                            <span>{`${weather.humidity.toFixed()}%`}</span>
-                            <span>{`${weather.temp_max.toFixed()}°`}</span>
-                            <span>{`${weather.temp_min.toFixed()}°`}</span>
+                            <span>{`${weather?.feels_like.toFixed()}°`}</span>
+                            <span>{`${weather?.humidity.toFixed()}%`}</span>
+                            <span>{`${weather?.speed.toFixed()} km/h`}</span>
+                            <span>{`${weather?.temp_max.toFixed()}°`}</span>
+                            <span>{`${weather?.temp_min.toFixed()}°`}</span>
                         </Row>
-{/* 
-                        <Col className={styles.forecastDetails}>
-
-                        </Col>
-
-                        <Col className={styles.forecastDetails}>
-                        </Col> */}
                     </Col>
                 </div>
             </CardStyled>

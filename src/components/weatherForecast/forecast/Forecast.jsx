@@ -4,8 +4,6 @@ import { iconUrlFromCode } from "../../../components/services/weatherService";
 import { Button, CardForecast, H4, H5, H6 } from "../../../styles/HomeStyles";
 
 function Forecast({ items }) {
-    console.log(items);
-    const [displayedItems, setDisplayedItems] = useState([]);
     const [numToShow, setNumToShow] = useState(6);
 
     const handleShowMore = () => {
@@ -24,7 +22,7 @@ function Forecast({ items }) {
                             className="card-img-top"
                             alt=""
                         />
-                        <div class="card-body">
+                        <div className="card-body">
                             <H5 className="card-text pt-2">{item?.title}</H5>
                             <H6 className="card-text">{`${item.temp.toFixed()}°`}</H6>
 

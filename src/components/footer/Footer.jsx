@@ -16,7 +16,7 @@ const Footer = () => {
     }, [theme]);
 
     return (
-        <MDBFooter bgColor='transparent' color='light' className='text-center text-lg-start text-white'>
+        <MDBFooter bgColor='transparent' color='light'  className={`text-center text-lg-start text-white`}>
             <FooterBG>
                 <section className='d-flex justify-content-center align-items-center justify-content-lg-between p-3 border-bottom'>
                     <div className='me-5 d-none d-lg-block'>
@@ -25,15 +25,15 @@ const Footer = () => {
 
                     <div className='d-flex justify-content-center '>
                         <MDBBtn color="transparent" floating className='m-1' href='https://www.facebook.com/accesa.eu' target='_blank' role='button'>
-                            <RiFacebookCircleLine className={styles.icon} />
+                            <RiFacebookCircleLine className={styles.iconFooter} />
                         </MDBBtn>
 
                         <MDBBtn color="transparent" floating className='m-1' href='https://www.instagram.com/lifeataccesa/' target='_blank' role='button'>
-                            <RiInstagramLine className={styles.icon} />
+                            <RiInstagramLine className={styles.iconFooter} />
                         </MDBBtn>
 
                         <MDBBtn color="transparent" floating className='m-1' href='https://careers.accesa.eu/' target='_blank' role='button'>
-                            <MdOutlineWorkOutline className={styles.icon} />
+                            <MdOutlineWorkOutline className={styles.iconFooter} />
                         </MDBBtn>
 
                     </div>

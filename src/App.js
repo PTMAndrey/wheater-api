@@ -14,6 +14,7 @@ import Navigation from './components/navigation/Navigation';
 import useStateProvider from './hooks/useStateProvider';
 import useWindowDimensions from './hooks/useWindowDimmensions';
 import NotFound from './components/notFound/NotFound';
+import Favorites from './pages/favorites/Favorites';
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
         >
 
           <Route path='/' element={<Home />} />
+          <Route path='/favorites' element={<Favorites />} />
           <Route path='*' element={<NotFound/>} />
         </Route>
 
