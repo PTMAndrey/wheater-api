@@ -1,35 +1,42 @@
-import React from "react";
-import { Row } from "react-bootstrap";
+import React, { useState } from "react";
+import { Col, Row } from "react-bootstrap";
 import { iconUrlFromCode } from "../../../components/services/weatherService";
-import { Card } from "../../../styles/HomeStyles";
+import { Button, CardForecast, H4, H5, H6 } from "../../../styles/HomeStyles";
 
-function Forecast({ title, items }) {
+function Forecast({ items }) {
     console.log(items);
+    const [displayedItems, setDisplayedItems] = useState([]);
+    const [numToShow, setNumToShow] = useState(6);
+
+    const handleShowMore = () => {
+        setNumToShow(numToShow + 6);
+    };
+    const itemsToDisplay = items.slice(0, numToShow);
     return (
         <div>
-            <div className="flex items-center justify-start mt-6">
-                <p className="text-white font-medium uppercase">{title}</p>
-            </div>
             <hr className="my-2" />
-
             <Row>
+                {itemsToDisplay.map((item, index) => (
 
-                {items.map((item, index) => (
-
-                    <Card key={index} className="m-4">
+                    <CardForecast key={index} className="m-4">
                         <img
                             src={iconUrlFromCode(item.icon)}
                             className="card-img-top"
                             alt=""
                         />
                         <div class="card-body">
-                            <p className="card-text text-sm">{item.title}</p>
-                            <p className="card-text font-medium">{`${item.temp.toFixed()}°`}</p>
+                            <H5 className="card-text pt-2">{item?.title}</H5>
+                            <H6 className="card-text">{`${item.temp.toFixed()}°`}</H6>
 
                         </div>
-                    </Card>
+                    </CardForecast>
                 ))}
+            {numToShow < items.length && (
+                <Row className="d-flex align-items-center"><Button onClick={handleShowMore}>Show More</Button></Row>
+            )} 
+            
             </Row>
+
         </div>
     );
 }

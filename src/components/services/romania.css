@@ -27,7 +27,7 @@
 
 .mapContainer path, .mapContainer2 path {
   fill: #ccc;
-  stroke: #fff;
+  stroke: #000;
   stroke-width: 1px;
   cursor: pointer;
 }
