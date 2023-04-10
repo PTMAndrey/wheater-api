@@ -18,11 +18,11 @@ const Theme = ({ children }) => {
   const darkTheme = {
     background: "#0f0e17",
     footer: "#18183a",
-    navBar: "#374151", //#a87703
+    navBar: "#374151",
     text: "#a7a9be",
     button: "#ff8906",
     buttonHover: "#c26a05",
-    cardBG:"#2f1970",
+    cardBG:"#1a0e41",
     colorCard: "#a7a9be",
   };
 
@@ -40,7 +40,7 @@ const Theme = ({ children }) => {
   const fluffyTheme = {
     background: "#faeee7",
     footer: "#0f0e17",
-    navBar: "#E5E7EB", // #663742 
+    navBar: "#E5E7EB", 
     text: "#594a4e",
     button: "#ff8ba7",
     buttonHover: "#c56d82",
@@ -51,9 +51,9 @@ const Theme = ({ children }) => {
   const rainTheme = {
     background: 'linear-gradient(180deg, rgba(2,0,0,1) 0%, rgba(9,9,80,1) 70%, rgba(0,9,155,1) 100%)',
     footer: "#0f0e17",
-    navBar: "#0c516d", // #4d8db8
+    navBar: "#0c516d",
     text: "#fff",
-    button: "#2b4759", // #2b4759 try it 
+    button: "#2b4759",
     buttonHover: "#1a2c38",
     cardBG: "#0c516d",
     colorCard: "white",

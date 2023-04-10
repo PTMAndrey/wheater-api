@@ -3,7 +3,6 @@ import { Container } from "../../styles/GlobalStyles";
 import { GlobalContext } from "../../context/GlobalContext";
 import {
     P,
-    MainNav,
     Sup,
 } from "../../styles/HomeStyles";
 import { Col } from "react-bootstrap";
@@ -12,6 +11,7 @@ import useStateProvider from "../../hooks/useStateProvider";
 import getFormattedWeatherData from "../../components/services/weatherService";
 import TodayForecast from "../../components/weatherForecast/today/TodayForecast";
 import Forecast from "../../components/weatherForecast/forecast/Forecast";
+import MainNavigation from "../../components/mainNavigation/MainNavigation";
 
 const Home = () => {
 
@@ -40,12 +40,7 @@ const Home = () => {
     console.log(weather);
     return (
         <Container>
-            <MainNav>
-                <Col className="d-flex justify-content-center"><button onClick={() => { setMainOptionNavigation("today") }}>TODAY</button></Col>
-                <Col className="d-flex justify-content-center"><button onClick={() => { setMainOptionNavigation("24H") }}>NEXT 24 HOURS</button></Col>
-                <Col className="d-flex justify-content-center"><button onClick={() => { setMainOptionNavigation("7D") }}>NEXT 7 DAYS</button></Col>
-                <Col className="d-flex justify-content-center"><button onClick={() => { setMainOptionNavigation("map") }}>PICK CITY</button></Col>
-            </MainNav>
+             <MainNavigation setMainOptionNavigation={setMainOptionNavigation} />
 
             <Container>
                 <Col>
@@ -54,24 +49,24 @@ const Home = () => {
                     }
                     {mainOptionNavigation === 'today' &&
                         <>
-                            {selectedCity && <P>Your selected city is: <b>{selectedCity}</b><Sup onClick={() => { setMainOptionNavigation("map") }}>Change city</Sup></P>}
+                            {selectedCity && <P style={{minWidth:'170px'}}>Your selected city is: <b>{selectedCity}</b><Sup onClick={() => { setMainOptionNavigation("map") }}>Change city</Sup></P>}
                             <TodayForecast weather={weather} />
                         </>
                     }
                     {mainOptionNavigation === '24H' &&
                         <>
-                            {selectedCity && <P>Your selected city is: <b>{selectedCity}</b><Sup onClick={() => { setMainOptionNavigation("map") }}>Change city</Sup></P>}
+                            {selectedCity && <P style={{minWidth:'170px'}}>Your selected city is: <b>{selectedCity}</b><Sup onClick={() => { setMainOptionNavigation("map") }}>Change city</Sup></P>}
 
 
-                            <Forecast title="hourly forecast" items={weather.hourly} />
+                            <Forecast items={weather.hourly} />
                         </>
                     }
                     {mainOptionNavigation === '7D' &&
                         <>
-                            {selectedCity && <P>Your selected city is: <b>{selectedCity}</b><Sup onClick={() => { setMainOptionNavigation("map") }}>Change city</Sup></P>}
+                            {selectedCity && <P style={{minWidth:'170px'}}>Your selected city is: <b>{selectedCity}</b><Sup onClick={() => { setMainOptionNavigation("map") }}>Change city</Sup></P>}
 
 
-                            <Forecast title="daily forecast" items={weather.daily} />
+                            <Forecast items={weather.daily} />
                         </>
                     }
 

@@ -1,0 +1,24 @@
+@import '../../styles/mixins.scss';
+
+.mainNav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    min-width: 190px;
+
+    @include responsive_W550px {
+        flex-direction: column;
+    }
+}
+
+.butonNav {
+    display: flex !important;
+    justify-content: center;
+    align-items: center !important;
+
+    @include responsive_W550px {
+        padding-top: 20px;
+        width: 100%;
+    }
+}
