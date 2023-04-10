@@ -34,8 +34,6 @@ const CardTodayForecast = () => {
         }
     }
     useEffect(() => {
-        
-        console.log(idSelectedCity)
         favorites && Object.entries(favorites).map(([key, value]) => (
             idSelectedCity === key && setIsFavorite(true)
         ))

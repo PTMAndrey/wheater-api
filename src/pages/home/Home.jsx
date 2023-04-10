@@ -8,15 +8,14 @@ import {
 import { Col } from "react-bootstrap";
 import Map from "../../components/map/Map";
 import useStateProvider from "../../hooks/useStateProvider";
-import getFormattedWeatherData from "../../components/services/weatherService";
 import TodayForecast from "../../components/weatherForecast/today/TodayForecast";
 import Forecast from "../../components/weatherForecast/forecast/Forecast";
 import MainNavigation from "../../components/mainNavigation/MainNavigation";
 
 const Home = () => {
-    const [prevOptionNav,setPrevOptionNav] = useState(null);
+    const [prevOptionNav, setPrevOptionNav] = useState(null);
     const { theme } = useContext(GlobalContext);
-    const { selectedCity, setSelectedCity,query, setQuery, units, setUnits, weather, setWeather, } = useStateProvider();
+    const {selectedCity, query, weather, fromFavorites, setFromFavorites} = useStateProvider();
 
     const [mainOptionNavigation, setMainOptionNavigation] = useState("map");
 
@@ -24,19 +23,14 @@ const Home = () => {
         window.localStorage.setItem("theme", theme);
     }, [theme]);
 
-
     useEffect(() => {
-        const fetchWeather = async () => {
-            await getFormattedWeatherData({ ...query, units }).then((data) => {
-                setWeather(data);
-            });
-        };
-
-        fetchWeather();
-    }, [query, units, prevOptionNav]);
+        if(fromFavorites){setMainOptionNavigation('today');setFromFavorites(false);console.log(query)}
+        
+    }, [fromFavorites]) //! WTF favorites
+    
     return (
         <Container>
-             <MainNavigation mainOptionNavigation={mainOptionNavigation} setMainOptionNavigation={setMainOptionNavigation} />
+            <MainNavigation mainOptionNavigation={mainOptionNavigation} setMainOptionNavigation={setMainOptionNavigation} />
 
             <Container>
                 <Col>
@@ -45,13 +39,13 @@ const Home = () => {
                     }
                     {mainOptionNavigation === 'today' &&
                         <>
-                            {selectedCity && <P style={{minWidth:'170px'}}>Your selected city is: <b>{selectedCity}</b><Sup onClick={() => {setPrevOptionNav('today'); setMainOptionNavigation("map") }}>Change city</Sup></P>}
-                            <TodayForecast/>
+                            {selectedCity && <P style={{ minWidth: '170px' }}>Your selected city is: <b>{selectedCity}</b><Sup onClick={() => { setPrevOptionNav('today'); setMainOptionNavigation("map") }}>Change city</Sup></P>}
+                            <TodayForecast />
                         </>
                     }
                     {mainOptionNavigation === '24H' &&
                         <>
-                            {selectedCity && <P style={{minWidth:'170px'}}>Your selected city is: <b>{selectedCity}</b><Sup onClick={() => { setPrevOptionNav('24H'); setMainOptionNavigation("map") }}>Change city</Sup></P>}
+                            {selectedCity && <P style={{ minWidth: '170px' }}>Your selected city is: <b>{selectedCity}</b><Sup onClick={() => { setPrevOptionNav('24H'); setMainOptionNavigation("map") }}>Change city</Sup></P>}
 
 
                             <Forecast items={weather.hourly} />
@@ -59,7 +53,7 @@ const Home = () => {
                     }
                     {mainOptionNavigation === '7D' &&
                         <>
-                            {selectedCity && <P style={{minWidth:'170px'}}>Your selected city is: <b>{selectedCity}</b><Sup onClick={() => {setPrevOptionNav('7D');  setMainOptionNavigation("map") }}>Change city</Sup></P>}
+                            {selectedCity && <P style={{ minWidth: '170px' }}>Your selected city is: <b>{selectedCity}</b><Sup onClick={() => { setPrevOptionNav('7D'); setMainOptionNavigation("map") }}>Change city</Sup></P>}
 
 
                             <Forecast items={weather.daily} />

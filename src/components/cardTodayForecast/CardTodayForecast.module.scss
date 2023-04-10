@@ -2,7 +2,7 @@
 @import '../../styles/index.scss';
 
 
-.cardToday {
+.cardToday, .cardFavorites {
     width: 80% !important;
     padding: 20px;
     display: flex;
@@ -16,6 +16,13 @@
         width: 100%;
         padding: 10px;
         margin:0px !important;
+    }
+}
+
+.cardFavorites{
+    cursor:pointer;
+    &:hover{
+        filter:invert(0.1);
     }
 }
 
@@ -70,4 +77,12 @@ hr{min-width: 180px;}
 .favoritePage{
   min-height:30rem;
   height:100%;
+  margin-top:20px;
+  .cardToday{
+    
+    @include responsive_W750px {
+        margin:0px !important;
+        margin-top:20px !important;
+    }
+  }
 }
