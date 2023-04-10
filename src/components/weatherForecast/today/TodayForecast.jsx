@@ -3,7 +3,7 @@ import { Div } from "../../../styles/HomeStyles";
 import CardTodayForecast from "../../cardTodayForecast/CardTodayForecast";
 import { Row } from "react-bootstrap";
 
-function TodayForecast() {
+const TodayForecast=()=>{
   return (
     <Div>
       <hr className="my-2" />

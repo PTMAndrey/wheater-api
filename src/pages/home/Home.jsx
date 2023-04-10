@@ -11,11 +11,12 @@ import useStateProvider from "../../hooks/useStateProvider";
 import TodayForecast from "../../components/weatherForecast/today/TodayForecast";
 import Forecast from "../../components/weatherForecast/forecast/Forecast";
 import MainNavigation from "../../components/mainNavigation/MainNavigation";
+import styles from './Home.module.scss';
 
 const Home = () => {
     const [prevOptionNav, setPrevOptionNav] = useState(null);
     const { theme } = useContext(GlobalContext);
-    const {selectedCity, query, weather, fromFavorites, setFromFavorites} = useStateProvider();
+    const { selectedCity, query, weather, fromFavorites, setFromFavorites } = useStateProvider();
 
     const [mainOptionNavigation, setMainOptionNavigation] = useState("map");
 
@@ -24,12 +25,11 @@ const Home = () => {
     }, [theme]);
 
     useEffect(() => {
-        if(fromFavorites){setMainOptionNavigation('today');setFromFavorites(false);console.log(query)}
-        
-    }, [fromFavorites]) //! WTF favorites
-    
+        if (fromFavorites) { setMainOptionNavigation('today'); setFromFavorites(false); }
+    }, [fromFavorites])
+
     return (
-        <Container>
+        <Container className={styles.mainContainer}>
             <MainNavigation mainOptionNavigation={mainOptionNavigation} setMainOptionNavigation={setMainOptionNavigation} />
 
             <Container>

@@ -16,7 +16,7 @@ import { Col, Row } from 'react-bootstrap';
 
 const CardTodayForecast = () => {
 
-    const { selectedCity, idSelectedCity, setAlert, favorites, setFavorites,weather, units, setUnits} = useStateProvider();
+    const { selectedCity, idSelectedCity, setAlert, favorites, setFavorites, weather, units, setUnits } = useStateProvider();
     const [isFavorite, setIsFavorite] = useState(false);
 
     const handleFavorites = () => {
@@ -38,7 +38,7 @@ const CardTodayForecast = () => {
             idSelectedCity === key && setIsFavorite(true)
         ))
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [idSelectedCity])
 
 
@@ -51,7 +51,7 @@ const CardTodayForecast = () => {
         <>
             <CardStyled className={`${styles.cardToday} m-4`}>
 
-                <Div className={styles.favContainer}>
+                <Div className={styles.favIconContainer}>
                     <div>
                         <TimeAndLocation weather={weather} />
                     </div>
@@ -63,13 +63,28 @@ const CardTodayForecast = () => {
                 <div className={styles.cardTodayBody}>
                     <Col className='mt-3'>
                         <Div>
-                            <div>
-                                Current weather
-                            </div>
+                            <div>Current weather</div>
                             <div className='d-flex flex-direction-row align-items-center'>
                                 <img src={iconUrlFromCode(weather?.icon)} alt="" />
-                                <H3>{`${weather?.temp.toFixed()}°`}</H3>
+                                <H3>{`${weather?.temp.toFixed()}° ${units === 'metric' ? 'C' : 'F'}`}</H3>
                             </div>
+                            <Div className='d-flex flex-direction-col mt-3 mb-3'>
+                                <div>Change units</div>
+                                <div className={styles.changeUnits}>
+                                    <button
+                                        name="metric"
+                                        onClick={handleUnitsChange}
+                                    >
+                                        °C
+                                    </button>
+                                    <button
+                                        name="imperial"
+                                        onClick={handleUnitsChange}
+                                    >
+                                        °F
+                                    </button>
+                                </div>
+                            </Div>
                         </Div>
                     </Col>
 
@@ -100,7 +115,7 @@ const CardTodayForecast = () => {
                         </Row>
                     </Col>
                 </div>
-            </CardStyled>
+            </CardStyled >
         </>
     );
 };

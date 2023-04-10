@@ -4,10 +4,11 @@ import useStateProvider from '../../hooks/useStateProvider';
 import { H5, P } from '../../styles/HomeStyles';
 import { Romania } from '../services/romania.js';
 import styles from "./Map.module.scss"
+import InputCity from '../inputCity/InputCity';
 
 const Map = (props) => {
 
-    const { selectedCity, setSelectedCity, setIDSelectedCity, setQuery} = useStateProvider();
+    const { selectedCity, setSelectedCity, setIDSelectedCity, setQuery, units, setUnits } = useStateProvider();
 
     const handleCityClick = (event) => {
         if (event.target.tagName === 'path') {
@@ -52,13 +53,20 @@ const Map = (props) => {
     }
     return (
         <div className={styles.map}>
-            <div className={styles.pickCity}>
-                <H5>Pick any city to view the weather!</H5>
-                <Romania onClick={handleCityClick} handleCityHover={handleCityHover} handleCityLeave={handleCityLeave} selectedCity={selectedCity} />
+            <div>
+                <div className={styles.pickCity}>
+                    <H5>Pick any city to view the weather!</H5>
+                    <Romania onClick={handleCityClick} handleCityHover={handleCityHover} handleCityLeave={handleCityLeave} selectedCity={selectedCity} />
+                </div>
+                <Row>
+                    <P>Your selected city is: {selectedCity}</P>
+                </Row>
             </div>
-            <Row>
-                <P>Your selected city is: {selectedCity}</P>
-            </Row>
+            <div>
+                <div className={styles.inputCity}>
+                    <InputCity setQuery={setQuery} units={units} setUnits={setUnits} />
+                </div>
+            </div>
         </div>
     )
 }

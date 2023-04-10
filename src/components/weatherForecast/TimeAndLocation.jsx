@@ -3,7 +3,7 @@ import { formatToLocalTime } from "../../components/services/weatherService";
 import useStateProvider from "../../hooks/useStateProvider";
 import { Div, H5 } from "../../styles/HomeStyles";
 
-function TimeAndLocation({ weather }) {
+const TimeAndLocation = ({ weather }) => {
     const { selectedCity } = useStateProvider();
     return (
         <Div>

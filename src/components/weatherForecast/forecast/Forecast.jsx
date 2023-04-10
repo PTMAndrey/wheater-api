@@ -1,15 +1,23 @@
 import React, { useState } from "react";
-import { Col, Row } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 import { iconUrlFromCode } from "../../../components/services/weatherService";
-import { Button, CardForecast, H4, H5, H6 } from "../../../styles/HomeStyles";
+import { Button, CardForecast, Div,  H5, H6 } from "../../../styles/HomeStyles";
+import useStateProvider from "../../../hooks/useStateProvider";
+import styles from './Forecast.module.scss';
 
-function Forecast({ items }) {
+const Forecast = ({ items }) => {
+    const { units, setUnits } = useStateProvider();
     const [numToShow, setNumToShow] = useState(6);
 
     const handleShowMore = () => {
         setNumToShow(numToShow + 6);
     };
     const itemsToDisplay = items.slice(0, numToShow);
+
+    const handleUnitsChange = (e) => {
+        const selectedUnit = e.currentTarget.name;
+        if (units !== selectedUnit) setUnits(selectedUnit);
+    };
     return (
         <div>
             <hr className="my-2" />
@@ -24,15 +32,29 @@ function Forecast({ items }) {
                         />
                         <div className="card-body">
                             <H5 className="card-text pt-2">{item?.title}</H5>
-                            <H6 className="card-text">{`${item.temp.toFixed()}°`}</H6>
+                            <Div className={styles.changeUnits}>
+                            <H6 className="card-text pt-2">{`${item.temp.toFixed()}°`}</H6>
+                                <button
+                                    name="metric"
+                                    onClick={handleUnitsChange}
+                                >
+                                    °C
+                                </button>
+                                <button
+                                    name="imperial"
+                                    onClick={handleUnitsChange}
+                                >
+                                    °F
+                                </button>
+                            </Div>
 
                         </div>
                     </CardForecast>
                 ))}
-            {numToShow < items.length && (
-                <Row className="d-flex align-items-center"><Button onClick={handleShowMore}>Show More</Button></Row>
-            )} 
-            
+                {numToShow < items.length && (
+                    <Row className="d-flex align-items-center"><Button onClick={handleShowMore}>Show More</Button></Row>
+                )}
+
             </Row>
 
         </div>
