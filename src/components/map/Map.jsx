@@ -7,14 +7,15 @@ import styles from "./Map.module.scss"
 
 const Map = (props) => {
 
-    const { selectedCity, setSelectedCity } = useStateProvider();
+    const { selectedCity, setSelectedCity, setIDSelectedCity, setQuery, weather  } = useStateProvider();
 
     const handleCityClick = (event) => {
         if (event.target.tagName === 'path') {
             // Retrieve the 'title' attribute using getAttribute
             setSelectedCity(event.target.getAttribute('title'));
-            props.setMainOptionNavigation('today');
-            props.setQuery({ q: event.target.getAttribute('title') })
+            setIDSelectedCity(event.target.getAttribute('id'))
+            props.setMainOptionNavigation(props.prevOptionNav !== null ? props.prevOptionNav : 'today');
+            setQuery({ q: event.target.getAttribute('title') })
         }
     }
 
@@ -51,13 +52,15 @@ const Map = (props) => {
     }
     return (
         <div className={styles.map}>
-            <div className={styles.pickCity}>
-                <H5>Pick any city to view the weather!</H5>
-                <Romania onClick={handleCityClick} handleCityHover={handleCityHover} handleCityLeave={handleCityLeave} selectedCity={selectedCity} />
+            <div>
+                <div className={styles.pickCity}>
+                    <H5>Pick any city to view the weather!</H5>
+                    <Romania onClick={handleCityClick} handleCityHover={handleCityHover} handleCityLeave={handleCityLeave} selectedCity={selectedCity} />
+                </div>
+                <Row>
+                    <P>Your selected city is: {weather?.name}</P>
+                </Row>
             </div>
-            <Row>
-                <P>Your selected city is: {selectedCity}</P>
-            </Row>
         </div>
     )
 }
