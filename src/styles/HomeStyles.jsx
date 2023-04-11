@@ -42,7 +42,7 @@ export const MainNav = styled.div`
   button{
     border-bottom:1px solid transparent;
     &:hover{
-      border-bottom:1px solid ${(props) => props.theme.button};
+      border-bottom:1px solid orange;
     }
   }
 //   @media screen and (max-width:750px) {
@@ -70,6 +70,8 @@ color:${(props) => props.theme.colorCard};
     img{
     border-bottom:1px solid black;
   }
+  
+  hr{min-width: 170px;}
 `
 
 export const H1 = styled.h1`
