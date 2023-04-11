@@ -5,13 +5,14 @@ import getFormattedWeatherData from '../components/services/weatherService';
 const StateContext = createContext({});
 
 export const StateProvider = ({ children }) => {
-  const [query, setQuery] = useState({ q: "București" });
+  const [query, setQuery] = useState({ q: "Bucharest" });
   const [units, setUnits] = useState("metric");
   const [weather, setWeather] = useState(null);
-  const [selectedCity, setSelectedCity] = useState("Bucuresti");
-  const [idSelectedCity, setIDSelectedCity] = useState("RO-B");
+  const [selectedCity, setSelectedCity] = useState("Bucharest");
+  const [idSelectedCity, setIDSelectedCity] = useState("ROB");
   const [favorites, setFavorites] = useState(localStorage.getItem('favorites') ? JSON.parse(localStorage.getItem('favorites')) : {});
   const [fromFavorites, setFromFavorites] = useState(false);
+  const [findMyLocation, setFindMyLocation] = useState(false);
   // alert
   const [alert, setAlert] = useState(null);
   if (alert) {
@@ -26,13 +27,15 @@ export const StateProvider = ({ children }) => {
   const fetchWeather = async () => {
     await getFormattedWeatherData({ ...query, units }).then((data) => {
       setWeather(data);
+      if (findMyLocation) { setQuery({q: data.nume}); setSelectedCity(data?.name); setIDSelectedCity(data?.country + data?.name); setFindMyLocation(false) }
     });
   };
 
 
   useEffect(() => {
     fetchWeather();
-  }, [query, units, fromFavorites]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [query, units, fromFavorites, selectedCity]);
 
   return <StateContext.Provider
     value={{
@@ -53,6 +56,8 @@ export const StateProvider = ({ children }) => {
       fromFavorites,
       setFromFavorites,
       fetchWeather,
+      findMyLocation,
+      setFindMyLocation,
     }}
   >{children}</StateContext.Provider>;
 };

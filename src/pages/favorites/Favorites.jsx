@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import useStateProvider from '../../hooks/useStateProvider'
 import { UilFavorite, UilSad, UilHome } from "@iconscout/react-unicons";
-import { CardStyled, Div, H1, H3, H4, H5, H6, P } from '../../styles/HomeStyles';
+import { CardStyled, Div, H3, H4 } from '../../styles/HomeStyles';
 import styles from '../../components/cardTodayForecast/CardTodayForecast.module.scss';
 import { useNavigate } from 'react-router-dom';
-import useWindowDimensions from '../../hooks/useWindowDimmensions';
 
 const Favorites = () => {
-    const { width } = useWindowDimensions();
     const navigate = useNavigate();
     const { setAlert, fetchWeather, favorites, setFavorites, setIDSelectedCity, setSelectedCity, setQuery, setFromFavorites } = useStateProvider();
 

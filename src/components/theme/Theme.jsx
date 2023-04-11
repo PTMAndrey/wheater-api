@@ -27,12 +27,12 @@ const Theme = ({ children }) => {
   };
 
   const lightTheme = {
-    background: "#e5f7f5",
+    background: "#f0f7f6",
     footer: "#0f0e17",
-    navBar: "#bae8e8", 
+    navBar: "#c9eeee", 
     text: "#2d334a",
-    button: "#ffd803",
-    buttonHover: "#bae8e8",
+    button: "#d8b800",
+    buttonHover: "#8dc0c0",
     cardBG: "#518d85",
     colorCard: "black",
   };

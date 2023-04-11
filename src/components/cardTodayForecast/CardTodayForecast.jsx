@@ -59,7 +59,7 @@ const CardTodayForecast = () => {
                         <UilFavorite className={isFavorite ? styles.favorite : styles.notFavorite} onClick={() => handleFavorites()} />
                     </Div>
                 </Div>
-                <hr />
+                <hr  className="my-2"/>
                 <div className={styles.cardTodayBody}>
                     <Col className='mt-3'>
                         <Div>

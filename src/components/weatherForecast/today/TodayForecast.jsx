@@ -7,7 +7,7 @@ const TodayForecast=()=>{
   return (
     <Div>
       <hr className="my-2" />
-      <Row className="d-flex justify-items-center">
+      <Row className="d-flex justify-items-center mr-5">
         <CardTodayForecast className="m-4"/>
       </Row>
     </Div>

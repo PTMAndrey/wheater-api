@@ -4,6 +4,7 @@ import { MDBFooter, MDBContainer, MDBBtn, MDBRow, MDBCol } from 'mdb-react-ui-ki
 import { RiFacebookCircleLine } from 'react-icons/ri'
 import { RiInstagramLine } from 'react-icons/ri'
 import { MdOutlineWorkOutline } from 'react-icons/md'
+import { CgWebsite } from 'react-icons/cg'
 import { FooterBG } from '../../styles/HomeStyles'
 import { GlobalContext } from '../../context/GlobalContext';
 
@@ -16,7 +17,7 @@ const Footer = () => {
     }, [theme]);
 
     return (
-        <MDBFooter bgColor='transparent' color='light'  className={`text-center text-lg-start text-white`}>
+        <MDBFooter bgColor='transparent' color='light' className={`text-center text-lg-start text-white`}>
             <FooterBG>
                 <section className='d-flex justify-content-center align-items-center justify-content-lg-between p-3 border-bottom'>
                     <div className='me-5 d-none d-lg-block'>
@@ -34,6 +35,10 @@ const Footer = () => {
 
                         <MDBBtn color="transparent" floating className='m-1' href='https://careers.accesa.eu/' target='_blank' role='button'>
                             <MdOutlineWorkOutline className={styles.iconFooter} />
+                        </MDBBtn>
+
+                        <MDBBtn color="transparent" floating className='m-1' href='https://accesa.eu/' target='_blank' role='button'>
+                            <CgWebsite className={styles.iconFooter} />
                         </MDBBtn>
 
                     </div>
