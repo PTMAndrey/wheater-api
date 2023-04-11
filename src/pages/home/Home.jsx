@@ -34,6 +34,7 @@ const Home = () => {
             <Container>
                 <Col>
                     {mainOptionNavigation === 'map' && <>
+                        <P className="d-flex justify-content-center">Your selected city is: <b>{weather?.name}</b></P>
                         <InputCity prevOptionNav={prevOptionNav} setMainOptionNavigation={setMainOptionNavigation} />
                         <H5 className="d-flex justify-content-center">OR</H5>
                         <Map prevOptionNav={prevOptionNav} setMainOptionNavigation={setMainOptionNavigation} />

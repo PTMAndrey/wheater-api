@@ -1,0 +1,237 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+.customThemeContainer {
+    min-width: 180px;
+    min-height: 35rem;
+    display: flex;
+    flex-direction: column;
+
+    @include responsive_W550px {
+        // margin-left:0px;
+    }
+}
+
+.customThemeBody {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 40px;
+
+    @include responsive_W750px {
+        flex-direction: column;
+    }
+}
+
+.customOptions {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include responsive_W750px {
+        padding-top: 30px;
+    }
+}
+
+.logoNavbar {
+    max-width: 50px;
+    aspect-ratio: 1;
+}
+
+
+.changeTheme {
+    filter: invert(1);
+    max-width: 25px;
+    margin-bottom: 5px;
+    aspect-ratio: 1;
+}
+
+.inputThemeName {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+
+    .input {
+        margin-left: 20px
+    }
+
+    @include responsive_W750px {
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.saveTheme {
+    width: 170px !important;
+    margin-top: 50px;
+}
+
+.miniWebPage {
+    background-color: $color-white;
+    width: 420px;
+    min-width: 180px;
+    height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid $color-black;
+
+    @include responsive_W750px {
+        width: 320px;
+        height: 320px;
+    }
+
+    @include responsive_W550px {
+        width: 100%;
+    }
+}
+
+.miniNavBar {
+    width: 400px;
+    height: 50px;
+    min-width: 150px;
+    border: 2px solid $color-black;
+    border-bottom: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .titleApp {
+        display: inline;
+    }
+
+    @include responsive_W750px {
+        width: 300px;
+        height: 50px;
+        font-size: 10px !important;
+    }
+
+    @include responsive_W550px {
+        width: 90%;
+
+        .titleApp {
+            display: none;
+        }
+    }
+}
+
+.colorPicker {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .labels {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        // padding-top:10px;
+    }
+
+    .colors {
+        // margin-top: -20px;
+        margin-left: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    
+        @include responsive_W550px {
+            margin-top: -20px;
+        }
+    }
+
+
+    input {
+        display: flex;
+        flex-direction: row;
+        // margin-top: 16px;
+
+        @include responsive_W550px {
+            // margin-top: 32px;
+        }
+    }
+    @include responsive_W550px{
+        justify-content: center;
+        // align-items: center;
+    }
+}
+
+.miniBody {
+    width: 400px;
+    min-width: 150px;
+    height: 300px;
+    border-left: 2px solid $color-black;
+    border-right: 2px solid $color-black;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+
+    @include responsive_W750px {
+        width: 300px;
+        height: 200px;
+    }
+
+    @include responsive_W550px {
+        width: 90%;
+
+    }
+
+    .miniCard {
+        width: 100% !important;
+        padding: 10px;
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+
+        @include responsive_W750px {
+            justify-content: center;
+            width: 100%;
+            padding: 5px;
+            margin-top: 10px;
+        }
+
+        @include responsive_W550px {
+            margin-top: 5px;
+            font-size: 10px;
+        }
+
+        hr {
+            margin-top: -50px;
+        }
+
+        .miniForecast {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            @include responsive_W550px {
+                flex-direction: column;
+                justify-content: flex-start;
+            }
+        }
+    }
+
+
+}
+
+
+.miniFooter {
+    width: 400px;
+    min-width: 150px;
+    height: 50px;
+    padding: 10px;
+    border: 2px solid $color-black;
+    border-top: none;
+    color: $color-white;
+
+    @include responsive_W750px {
+        width: 300px;
+        height: 50px;
+    }
+
+    @include responsive_W550px {
+        width: 90%;
+    }
+}

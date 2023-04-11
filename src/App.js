@@ -15,6 +15,7 @@ import useStateProvider from './hooks/useStateProvider';
 import useWindowDimensions from './hooks/useWindowDimmensions';
 import NotFound from './components/notFound/NotFound';
 import Favorites from './pages/favorites/Favorites';
+import CustomTheme from './pages/customTheme/CustomTheme';
 
 function App() {
 
@@ -41,6 +42,7 @@ function App() {
 
           <Route path='/' element={<Home />} />
           <Route path='/favorites' element={<Favorites />} />
+          <Route path='/custom-theme' element={<CustomTheme />} />
           <Route path='*' element={<NotFound/>} />
         </Route>
 

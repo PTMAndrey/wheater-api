@@ -9,18 +9,13 @@
 }
 
 .mapContainer2 {
-  /* display: inline-block; */
-  /* position: relative; */
   width: 100%;
-  /* padding-bottom: 100%;  */
   padding-bottom: 20px;
   vertical-align: middle;
   overflow: hidden;
 }
 
 .svg-content {
-  /* display: inline-block; */
-  /* position: absolute; */
   top: 0;
   left: 0;
 }
@@ -38,8 +33,6 @@
 
 .mapContainer .cityNameHover, .mapContainer2 .cityNameHover {
   position: absolute;
-  /* top: 0;
-    left: 0; */
   display: none;
   background-color: rgba(0, 0, 0, 0.8);
   color: #fff;
