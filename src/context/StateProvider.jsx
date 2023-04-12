@@ -1,6 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
 import getFormattedWeatherData from '../components/services/weatherService';
-// import { } from '../api/API';
 
 const StateContext = createContext({});
 
@@ -13,7 +12,8 @@ export const StateProvider = ({ children }) => {
   const [favorites, setFavorites] = useState(localStorage.getItem('favorites') ? JSON.parse(localStorage.getItem('favorites')) : {});
   const [fromFavorites, setFromFavorites] = useState(false);
   const [findMyLocation, setFindMyLocation] = useState(false);
-  // alert
+  const [customTheme, setCustomTheme] = useState(localStorage.getItem('customTheme') ? JSON.parse(localStorage.getItem('customTheme')) : {});
+
   const [alert, setAlert] = useState(null);
   if (alert) {
     setTimeout(() => {
@@ -24,17 +24,21 @@ export const StateProvider = ({ children }) => {
     localStorage.setItem('favorites', JSON.stringify(favorites));
   }, [favorites])
 
+  useEffect(() => {
+    localStorage.setItem('customTheme', JSON.stringify(customTheme));
+  }, [customTheme])
+
   const fetchWeather = async () => {
     await getFormattedWeatherData({ ...query, units }).then((data) => {
       setWeather(data);
-      if (findMyLocation) { setQuery({q: data.nume}); setSelectedCity(data?.name); setIDSelectedCity(data?.country + data?.name); setFindMyLocation(false) }
+      if (findMyLocation) { setQuery({ q: data.nume }); setSelectedCity(data?.name); setIDSelectedCity(data?.country + data?.name); setFindMyLocation(false) }
     });
   };
 
 
   useEffect(() => {
     fetchWeather();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query, units, fromFavorites, selectedCity]);
 
   return <StateContext.Provider
@@ -58,6 +62,8 @@ export const StateProvider = ({ children }) => {
       fetchWeather,
       findMyLocation,
       setFindMyLocation,
+      customTheme,
+      setCustomTheme,
     }}
   >{children}</StateContext.Provider>;
 };

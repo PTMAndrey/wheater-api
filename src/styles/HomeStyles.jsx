@@ -1,11 +1,15 @@
 import styled from "styled-components";
 
-export const NavBarStyled = styled.div`
+export const NavBarStyledBackground = styled.div`
   background-color: ${(props) => props.theme.navBar};
   width:100%;
   height:100%;
   margin-top:-10px;
 `
+export const NavBarStyledColorText = styled.span`
+color: ${(props) => props.theme.navBarColor} !important;
+`
+
 
 export const FooterBG = styled.div`
   background-color: ${(props) => props.theme.footer};
@@ -45,9 +49,6 @@ export const MainNav = styled.div`
       border-bottom:1px solid orange;
     }
   }
-//   @media screen and (max-width:750px) {
-//     font-size: 80px !important;
-// }
 `
 
 
