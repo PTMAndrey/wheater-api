@@ -1,6 +1,5 @@
 # Author: Andries Dorin Andrei
 
-####################################################################
 ## Installation: 
 
 - Run `npm install` to install dependencies.
