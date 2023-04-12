@@ -5,6 +5,8 @@ export const Romania = (props) => {
    const {width, height} = useWindowDimensions();
    return (
       <div className={width > 750 ? "mapContainer" : "mapContainer2"}>
+         
+         <div className="cityNameHover"></div>
          <svg
             width={width > 550 ?  "100%": "100%" }
             height={height> 550 ? "100%" :"100%" }
@@ -351,7 +353,6 @@ export const Romania = (props) => {
                id="ROVS" />
          </svg>
 
-         <div className="cityNameHover"></div>
       </div>
    );
 };

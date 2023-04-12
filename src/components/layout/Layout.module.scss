@@ -2,7 +2,6 @@
 @import "../../styles/mixins.scss";
 
 .layout {
-    // background-image: linear-gradient(to top, #8988DD, rgba(255, 255, 255, 0.386));
     padding: 32px;
     padding-top: 0px;
     min-width: 220px;
@@ -24,7 +23,6 @@
 .container {
     display: flex;
     flex-direction: column;
-    // background-color: $background-color;
     max-width: 1320px;
     min-width: 100px;
     margin: 0 auto 32px auto;
