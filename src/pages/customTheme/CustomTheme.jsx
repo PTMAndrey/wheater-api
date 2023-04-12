@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 
 import Logo from '../../assets/images/Logo.svg';
 import styles from './CustomTheme.module.scss';
@@ -6,9 +6,12 @@ import { Button, Div, H3 } from '../../styles/HomeStyles';
 import { Col } from 'react-bootstrap';
 import useStateProvider from '../../hooks/useStateProvider';
 import { useNavigate } from 'react-router-dom';
+import { GlobalContext } from '../../context/GlobalContext';
 
 const CustomTheme = () => {
-    const {setAlert, units, customTheme, setCustomTheme } = useStateProvider();
+    const { setAlert, units, customTheme, setCustomTheme } = useStateProvider();
+
+    const { themeSwitchHandler } = useContext(GlobalContext);
     const navigate = useNavigate();
     const [newTheme, setTheme] = useState({
         name: Object.keys(customTheme).length !== 0 ? customTheme.name : 'MyTheme',
@@ -20,7 +23,7 @@ const CustomTheme = () => {
             text: Object.keys(customTheme).length !== 0 ? customTheme.colors.text : "#2d334a",
             button: Object.keys(customTheme).length !== 0 ? customTheme.colors.button : "#d8b800",
             buttonHover: Object.keys(customTheme).length !== 0 ? customTheme.colors.buttonHover : "#8dc0c0",
-            cardBG: Object.keys(customTheme).length !== 0 ? customTheme.colors.cardBG : "#518d85",
+            cardBG: Object.keys(customTheme).length !== 0 ? customTheme.colors.cardBG : "#a08d85",
             colorCard: Object.keys(customTheme).length !== 0 ? customTheme.colors.colorCard : "#000000",
         },
     });
@@ -60,9 +63,10 @@ const CustomTheme = () => {
         setCustomTheme(updatedCustomTheme);
         setAlert({ type: 'success', message: 'Your theme was saved' });
     }
-    
+
     const handleRemoveTheme = () => {
         setCustomTheme({});
+        themeSwitchHandler("light");
         setAlert({ type: 'success', message: 'Your theme was deleted' });
         navigate('/');
     }
@@ -208,12 +212,14 @@ const CustomTheme = () => {
                             placeholder="Type here..."
                         />
                     </div>
-                    <Button className={styles.saveTheme} onClick={handleSaveTheme}>
-                        Save the theme
-                    </Button>
-                    <Button className={styles.saveTheme} onClick={handleRemoveTheme}>
-                        Delete the theme
-                    </Button>
+                    <div>
+                        <Button className={styles.saveTheme} onClick={handleSaveTheme}>
+                            Save the theme
+                        </Button>
+                        <Button className={styles.saveTheme} onClick={handleRemoveTheme}>
+                            Delete the theme
+                        </Button>
+                    </div>
                 </div>
 
             </div>

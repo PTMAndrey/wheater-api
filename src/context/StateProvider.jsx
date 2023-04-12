@@ -1,6 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
 import getFormattedWeatherData from '../components/services/weatherService';
-// import { } from '../api/API';
 
 const StateContext = createContext({});
 
@@ -15,7 +14,6 @@ export const StateProvider = ({ children }) => {
   const [findMyLocation, setFindMyLocation] = useState(false);
   const [customTheme, setCustomTheme] = useState(localStorage.getItem('customTheme') ? JSON.parse(localStorage.getItem('customTheme')) : {});
 
-  // alert
   const [alert, setAlert] = useState(null);
   if (alert) {
     setTimeout(() => {

@@ -49,9 +49,6 @@ export const MainNav = styled.div`
       border-bottom:1px solid orange;
     }
   }
-//   @media screen and (max-width:750px) {
-//     font-size: 80px !important;
-// }
 `
 
 

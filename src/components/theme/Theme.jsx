@@ -4,7 +4,6 @@ import { normalize } from "styled-normalize";
 import { GlobalContext } from "../../context/GlobalContext";
 import useStateProvider from "../../hooks/useStateProvider";
 
-// 1.
 const GlobalStyle = createGlobalStyle`
   ${normalize}
 
@@ -14,7 +13,6 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-// 2.
 const Theme = ({ children }) => {
   const {customTheme} = useStateProvider();
 
@@ -66,11 +64,8 @@ const Theme = ({ children }) => {
     colorCard: "#fff",
   };
 
-
-  // 3.
   const currentTheme = useContext(GlobalContext);
 
-  // 4.
   let theme;
   switch (currentTheme.theme) {
     case "dark":
