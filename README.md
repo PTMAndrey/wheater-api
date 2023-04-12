@@ -26,4 +26,4 @@
 - The user is able to switch themes inside application.
 - The user is able to customise his own theme on website.
 - Saved cities can be accesed into a specific tab called 'Favorites'. 
-    -- If a city is clicked it is possible to see the weather of it.
+- If a city is clicked it is possible to see the forecast weather of it.
