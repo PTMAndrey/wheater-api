@@ -1,7 +1,7 @@
 # Author: Andries Dorin Andrei
 
 ## Installation: 
-
+- The app was created using React.js library
 - Run `npm install` to install dependencies.
 - Execute `npm start` to run the application.
 - Explore my work 😄.
