@@ -3,9 +3,9 @@
 ####################################################################
 * Installation: 
 
-Run `npm install` to install dependencies.
-Execute `npm start` to run the application.
-Explore my work 😄.
+- Run `npm install` to install dependencies.
+- Execute `npm start` to run the application.
+- Explore my work 😄.
 
 * Mandatory tasks implemented
 
