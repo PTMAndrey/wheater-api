@@ -5,6 +5,7 @@
 - Run `npm install` to install the dependencies;
 - Run `npm start` to run the application;
 - Explore my work 😄.
+- If the weather API appears to be down, visit `https://openweathermap.org/price#weather`, sign up for the free plan, and in `./src/components/services/weatherService.js`, replace the API_KEY with your own key provided by the website.
 
 ## Mandatory tasks implemented
 
